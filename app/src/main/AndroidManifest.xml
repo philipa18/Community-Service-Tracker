@@ -18,6 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Mention activities below -->
+        <!-- Could add labels for each activity but not necessary -->
+        <activity
+            android:name="SignInAccCreationActivity">
+        </activity>
+        <activity
+            android:name="StudentActivity">
+        </activity>
+        <activity
+            android:name="OrgActivity">
+        </activity>
+
     </application>
 
 </manifest>
