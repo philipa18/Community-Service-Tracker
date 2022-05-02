@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CommunityServiceTracker">
         <activity
+            android:name=".accountentry.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DummyOrgActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DummyStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountentry.SignInActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

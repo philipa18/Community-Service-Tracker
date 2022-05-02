@@ -3,74 +3,38 @@ package com.example.communityservicetracker
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import com.example.communityservicetracker.accountentry.RegistrationActivity
+import com.example.communityservicetracker.accountentry.SignInActivity
 
 class MainActivity : AppCompatActivity() {
 
-    /*
-    Temporary buttons that lead to separate workflows. Plan to get rid of
-    these once we all have our workflows ready.
-    */
-    private lateinit var nathanielButton: Button
-    private lateinit var inesButton: Button
-    private lateinit var philipButton: Button;
-
+    private lateinit var loginBtn: Button
+    private lateinit var studentReg: Button
+    private lateinit var orgReg: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        loginBtn = findViewById(R.id.button)
+        studentReg = findViewById(R.id.button2)
+        orgReg = findViewById(R.id.button3)
 
-        /*
-        Set up buttons to lead to each group members' workflows.
-        Should help with collaboration
-         */
-        philipButton = findViewById(R.id.PhilipButton)
-        inesButton = findViewById(R.id.InesButton)
-        nathanielButton = findViewById(R.id.NathanielButton)
-
-        // Set onClickListener for each button
-        philipButton.setOnClickListener(){
-            processClick(it)
+        loginBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, SignInActivity::class.java))
         }
 
-        inesButton.setOnClickListener(){
-            processClick(it)
+        studentReg.setOnClickListener {
+            val intent = Intent(this@MainActivity, RegistrationActivity::class.java)
+            intent.putExtra("account_type", 0)
+            startActivity(intent)
         }
 
-        nathanielButton.setOnClickListener(){
-            processClick(it)
+        orgReg.setOnClickListener {
+            val intent = Intent(this@MainActivity, RegistrationActivity::class.java)
+            intent.putExtra("account_type", 1)
+            startActivity(intent)
         }
-
-    }
-
-    // Depending on which button is clicked, we will be taken to that page
-    fun processClick(v: View) {
-
-        // First argument: current class
-        // Second argument: the class that we will be directed to depending
-        //      on the id of the button that we clicked
-
-        var activityIntent = Intent(this@MainActivity,
-
-            when ((v as Button).text)  {
-
-                "Sign-in and account creation workflow" ->
-                    SignInAccCreationActivity::class.java
-                "Student Workflow" ->
-                    StudentActivity::class.java
-                else -> OrgActivity::class.java
-            }
-
-        )
-
-        // Go to that class by displaying its contents on the screen
-        startActivity(activityIntent)
-
-
-
-
-
     }
 }

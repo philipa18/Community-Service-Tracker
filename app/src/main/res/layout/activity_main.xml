@@ -4,55 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Sign In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="64dp"
+        android:text="Register A Student Account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="64dp"
+        android:text="Register An Organization Account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Page designed for group. Leads to different workflows"
-        app:layout_constraintBottom_toTopOf="@id/PhilipButton"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <!-- Where we put the buttons for each group member -->
-
-    <!-- Philip's Button -->
-    <Button
-        android:id="@+id/PhilipButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Sign-in and account creation workflow"
-        app:layout_constraintBottom_toTopOf="@id/InesButton"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        />
-
-
-    <!-- Ines' button -->
-    <Button
-        android:id="@+id/InesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Student Workflow"
-        app:layout_constraintBottom_toTopOf="@+id/NathanielButton"
-        app:layout_constraintStart_toStartOf="@+id/PhilipButton"
-
-        />
-
-    <!-- Nathaniel's button -->
-    <Button
-        android:id="@+id/NathanielButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Organization Workflow"
-        app:layout_constraintBottom_toTopOf="@+id/InesButton"
+        android:layout_marginTop="64dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Welcome!"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-         />
-
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
