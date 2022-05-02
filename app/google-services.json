@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1016776276734",
+    "project_id": "community-service-tracke-3f281",
+    "storage_bucket": "community-service-tracke-3f281.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016776276734:android:fea3802562ea55c04cc3af",
+        "android_client_info": {
+          "package_name": "com.example.communityservicetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016776276734-k7on61lv2eombnnit159v9rj44grlrer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkLiICvBAbzGFR2iQug5n3nkS8GivA1Mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016776276734-k7on61lv2eombnnit159v9rj44grlrer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
