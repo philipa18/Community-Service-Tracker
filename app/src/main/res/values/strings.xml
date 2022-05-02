@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Community Service Tracker</string>
+    <string name="username_string">Username</string>
+    <string name="name_string">Name</string>
+    <string name="grade_string">Grade</string>
+    <string name="ssl_string">Number of SSL Hours</string>
+    <string name="view_opportunities_string">View Opportunities</string>
+    <string name="view_profile_string">View Profile</string>
 </resources>
