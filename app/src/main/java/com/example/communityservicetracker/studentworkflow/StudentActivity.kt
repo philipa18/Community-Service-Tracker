@@ -1,7 +1,8 @@
-package com.example.communityservicetracker
+package com.example.communityservicetracker.studentworkflow
 
 import android.app.Activity
 import android.os.Bundle
+import com.example.communityservicetracker.R
 
 
 // Ines

@@ -1,4 +1,4 @@
-package com.example.communityservicetracker
+package com.example.communityservicetracker.orgworkflow
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

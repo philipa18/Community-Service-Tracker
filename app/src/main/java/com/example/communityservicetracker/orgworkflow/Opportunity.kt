@@ -1,6 +1,5 @@
-package com.example.communityservicetracker
+package com.example.communityservicetracker.orgworkflow
 
-import java.io.FileDescriptor
 
 // Represents opportunity
 
@@ -11,7 +10,7 @@ data class Opportunity(val organizationName : String,
                        val numberOfApplicants : Int,
                        val listOfVolunteers : List<String>) {
 
-    // List of volunteers stores ids (can be represented as strings)
+    // listOfVolunteers: List of volunteers stores ids from database (can be represented as strings)
 
 
     // toString method that provides description of opportunity
