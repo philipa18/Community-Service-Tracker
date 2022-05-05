@@ -12,11 +12,21 @@
         <activity
             android:name=".accountentry.RegistrationActivity"
             android:exported="false" />
+        
+        <!-- All the organization workflow classes-->
         <activity
-            android:name=".DummyOrgActivity"
+            android:name=".orgworkflow.DummyOrgActivity"
             android:exported="false" />
+        
+        <activity android:name=".orgworkflow.CreateOpportunityActivity"/>
+
+        <activity android:name=".orgworkflow.ViewOpportunitiesActivity"/>
+
+        <!-- Will probably delete later -->
+        <activity android:name=".orgworkflow.OrgInfoActivity"/>
+        
         <activity
-            android:name=".DummyStudentActivity"
+            android:name=".studentworkflow.DummyStudentActivity"
             android:exported="false" />
         <activity
             android:name=".accountentry.SignInActivity"
@@ -31,17 +41,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Mention activities below -->
-        <!-- Could add labels for each activity but not necessary -->
-        <activity
-            android:name="SignInAccCreationActivity">
-        </activity>
-        <activity
-            android:name="StudentActivity">
-        </activity>
-        <activity
-            android:name="OrgActivity">
-        </activity>
+        <!-- REMOVED UNNECESSARY CLASSES -->
 
     </application>
 

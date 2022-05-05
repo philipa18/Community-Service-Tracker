@@ -2,7 +2,6 @@ package com.example.communityservicetracker.orgworkflow
 
 
 // Represents opportunity
-
 data class Opportunity(val organizationName : String,
                        val description : String,
                        val title : String,

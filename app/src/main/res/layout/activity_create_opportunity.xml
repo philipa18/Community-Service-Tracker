@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00aa00"
+    >
+
+    <!-- android:hint="@string/Enter title" -->
+
+    <!-- Has textfields where user can type in info about a new opportunity-->
+    <LinearLayout
+        android:id="@+id/infoOpportunityLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/SubmitAndCancelLayout"
+        android:orientation="vertical"
+        android:textAlignment="center">
+
+        <!-- Name of opportunity-->
+        <EditText
+            android:id="@+id/titleOpp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:text="Title of opportunity: "
+            ></EditText>
+
+        <!-- Description of opportunity-->
+        <EditText
+            android:id="@+id/descOpp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:text="Description of opportunity: "
+            ></EditText>
+
+        <!-- Number of hours -->
+        <EditText
+            android:id="@+id/hoursOpp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:text="Time commitment of opportunity: "
+            ></EditText>
+
+
+
+
+
+    </LinearLayout>
+
+    <!-- Submit and cancel buttons-->
+    <LinearLayout
+        android:id="@+id/SubmitAndCancelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/buttonsLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#00aa00">
+
+        <!-- Submit button-->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_weight="1"
+            android:text="Submit"/>
+
+        <!-- Cancel button -->
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_weight="1"
+            android:text="Cancel"/>
+
+
+    </LinearLayout>
+
+
+
+    <!-- Lower row of buttons -->
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#00aa00"
+        >
+
+        <!-- To create oppportunity -->
+        <Button
+            android:id="@+id/createOpp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Create Opportunity" />
+
+        <!-- To view the opportunities the org has listed-->
+
+        <!-- To go back to profile page-->
+        <Button
+            android:id="@+id/viewOpps"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="View Opportunity" />
+
+        <Button
+            android:id="@+id/profilePage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="View Profile Page" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
