@@ -1,6 +1,7 @@
 package com.example.communityservicetracker.orgworkflow
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +11,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.communityservicetracker.R
 
 
-class OpportunityListAdapter :
+class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
     RecyclerView.Adapter<OpportunityListAdapter.ViewHolder>() {
 
-    // Array would store data retrieved from the user's list of opportunities in db
-    private var titlesOpportunities = arrayOf("Title 01", "Title 02", "Title 03")
-    private var descriptionsOfOpportunities = arrayOf("Desc 01", "Desc 02", "Desc 03")
+
     /*
     The arrays above store temporary data to help you both understand what the
     page would look like
 *   */
 
+
+
+    // To add an item
+    /*
+    fun add(newOpportunity : Opportunity) {
+
+        Log.i("CST", "In add before actual ops")
+
+        oppsList.add(newOpportunity)
+        notifyItemChanged(oppsList.size)
+
+
+        Log.i("CST", "In add after actual ops")
+
+
+    }
+
+     */
 
 
     override fun onCreateViewHolder(
@@ -36,8 +53,9 @@ class OpportunityListAdapter :
     // Function keeps iterating through the arrays
     override fun onBindViewHolder(holder: OpportunityListAdapter.ViewHolder, index: Int) {
 
-        holder.itemTitle.text = titlesOpportunities[index]
-        holder.itemDesc.text = descriptionsOfOpportunities[index]
+        holder.itemTitle.text = oppsList[index].title
+        holder.itemDesc.text = oppsList[index].description
+
 
 
     }
@@ -45,7 +63,7 @@ class OpportunityListAdapter :
 
     // Need to identify how many items are being passed into our viewholder
     override fun getItemCount(): Int {
-        return titlesOpportunities.size
+        return oppsList.size
     }
 
 
@@ -68,7 +86,7 @@ class OpportunityListAdapter :
             // Should lead to a different page that shows more about the opportunity
             moreButton.setOnClickListener(){
 
-                // If user is a student, lead to a page that allows them to enroll?
+                //  If user is a student, lead to a page that allows them to enroll?
                 // If user is an org, I guess show information about opportunity?
 
 

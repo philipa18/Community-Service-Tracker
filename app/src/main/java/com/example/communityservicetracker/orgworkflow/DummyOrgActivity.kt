@@ -43,8 +43,11 @@ class DummyOrgActivity : AppCompatActivity() {
         if (user != null) {
             // User is signed in
 
-            val uid = user.uid
-            Log.i("OrgInfoActivity","uid of user signed in: $uid")
+            //val uid = user.uid
+           //Log.i("OrgInfoActivity","uid of user signed in: $uid")
+
+            // Access list of opportunities
+            //user.
 
 
         } else {
