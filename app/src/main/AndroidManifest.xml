@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CommunityServiceTracker">
+        <activity android:name=".studentworkflow.ViewOpportunitiesStudentView"/>
         <activity
-            android:name=".studentworkflow.ViewOpportunitiesStudentView"
+            android:name=".OpportunityDetailActivity"
             android:exported="false" />
         <activity
             android:name=".accountentry.RegistrationActivity"
