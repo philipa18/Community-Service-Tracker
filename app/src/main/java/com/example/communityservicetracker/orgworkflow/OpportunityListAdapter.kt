@@ -14,32 +14,6 @@ import com.example.communityservicetracker.R
 class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
     RecyclerView.Adapter<OpportunityListAdapter.ViewHolder>() {
 
-
-    /*
-    The arrays above store temporary data to help you both understand what the
-    page would look like
-*   */
-
-
-
-    // To add an item
-    /*
-    fun add(newOpportunity : Opportunity) {
-
-        Log.i("CST", "In add before actual ops")
-
-        oppsList.add(newOpportunity)
-        notifyItemChanged(oppsList.size)
-
-
-        Log.i("CST", "In add after actual ops")
-
-
-    }
-
-     */
-
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -52,6 +26,8 @@ class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
 
     // Function keeps iterating through the arrays
     override fun onBindViewHolder(holder: OpportunityListAdapter.ViewHolder, index: Int) {
+
+        Log.i("CST", "in ononBindViewHolder")
 
         holder.itemTitle.text = oppsList[index].title
         holder.itemDesc.text = oppsList[index].description

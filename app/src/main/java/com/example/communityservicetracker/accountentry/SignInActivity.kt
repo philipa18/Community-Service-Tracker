@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.communityservicetracker.R
 import com.example.communityservicetracker.orgworkflow.DummyOrgActivity
+import com.example.communityservicetracker.orgworkflow.ViewOpportunitiesActivity
 import com.example.communityservicetracker.studentworkflow.StudentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
