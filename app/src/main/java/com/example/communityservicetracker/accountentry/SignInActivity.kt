@@ -8,9 +8,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.communityservicetracker.DummyOrgActivity
-import com.example.communityservicetracker.DummyStudentActivity
 import com.example.communityservicetracker.R
+import com.example.communityservicetracker.orgworkflow.DummyOrgActivity
+import com.example.communityservicetracker.studentworkflow.StudentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -59,7 +59,7 @@ class SignInActivity : AppCompatActivity() {
                             val mUserType = it.value.toString()
                             Log.d("account_type", mUserType)
                             if (mUserType == "0")
-                                startActivity(Intent(this@SignInActivity, DummyStudentActivity::class.java))
+                                startActivity(Intent(this@SignInActivity, StudentActivity::class.java))
                             else
                                 startActivity(Intent(this@SignInActivity, DummyOrgActivity::class.java))
 

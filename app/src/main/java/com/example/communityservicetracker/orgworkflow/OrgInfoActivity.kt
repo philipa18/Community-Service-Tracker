@@ -21,6 +21,8 @@ class OrgInfoActivity : Activity() {
     private lateinit var mDB: DatabaseReference
 
 
+
+
     // Buttons at bottom of page
     private lateinit var createOpp: Button
     private lateinit var viewOpps: Button
