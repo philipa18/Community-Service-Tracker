@@ -1,12 +1,14 @@
 package com.example.communityservicetracker.studentworkflow
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.communityservicetracker.R
+import com.example.communityservicetracker.orgworkflow.CreateOpportunityActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -63,6 +65,13 @@ class StudentActivity : Activity() {
                 grade.text = usernameType
                 // progress.max(it.value.toString().toInt())
             }
+
+        viewAvailableButton.setOnClickListener(){
+
+            val intent = Intent(this@StudentActivity, ViewOpportunitiesStudentView::class.java)
+            startActivity(intent)
+
+        }
     }
 
 
