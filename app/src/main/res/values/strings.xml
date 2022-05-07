@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">Community Service Tracker</string>
 
-    <string name="username_string">Username</string>
+    <string name="username_string">Name: </string>
     <string name="name_string">Name</string>
-    <string name="grade_string">Grade</string>
-    <string name="ssl_string">Number of SSL Hours</string>
-    <string name="view_opportunities_string">View Opportunities</string>
-    <string name="view_profile_string">View Profile</string>
+    <string name="grade_string">Grade: </string>
+    <string name="ssl_string">Volunteer Hours Total Goal: </string>
+    <string name="ssl_current">Volunteer Hours Earned: </string>
+    <string name="view_opportunities_string">New Opportunities</string>
+    <string name="view_accepted_string">Accepted Opportunities </string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

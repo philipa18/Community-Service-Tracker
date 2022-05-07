@@ -24,6 +24,10 @@
         <activity
             android:name=".studentworkflow.DummyStudentActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".studentworkflow.StudentActivity"
+            android:exported="false" />
         <activity
             android:name=".accountentry.SignInActivity"
             android:exported="false" />
