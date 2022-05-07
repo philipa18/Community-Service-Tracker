@@ -9,7 +9,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.communityservicetracker.R
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 
 // Page that allows organization to create a new opportunity to be posted
@@ -152,18 +154,21 @@ class CreateOpportunityActivity : AppCompatActivity() {
 
                 var listVolunteers = ArrayList<String>()
 
-                // Creates random key for new opportunity
-                val opp_id : String? = dbOpportunities.push().getKey()
+
+                //val oppName = FirebaseDatabase.User
 
                 // New opportunity
                 val newOpp : Opportunity = Opportunity(
-                    opp_id,
+                    Firebase.auth.currentUser?.uid.toString(),
                     desc,
                     title,
                     hours.toInt(),
                     0,
                     listVolunteers
                 )
+
+                // Creates random key for new opportunity
+                val opp_id : String? = dbOpportunities.push().getKey()
 
                 // Adding an opportunity with the generated id to the table
                 dbOpportunities.child(opp_id!!)
