@@ -3,17 +3,17 @@ package com.example.communityservicetracker.orgworkflow
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.communityservicetracker.R
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.database.FirebaseDatabase
 
 
 // Page that allows organization to create a new opportunity to be posted
-class CreateOpportunityActivity :AppCompatActivity() {
+class CreateOpportunityActivity : AppCompatActivity() {
 
     // Typical three buttons at bottom of page
     private lateinit var createOpp: Button
@@ -29,7 +29,6 @@ class CreateOpportunityActivity :AppCompatActivity() {
     private lateinit var descOpp : EditText
     private lateinit var hoursOpp : EditText
 
-    // Provide a form for user to fill out
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +41,9 @@ class CreateOpportunityActivity :AppCompatActivity() {
 
         // Set up text fields
         setUpTextFields()
+
+        // Initialize getResult
+
 
     }
 
@@ -114,7 +116,7 @@ class CreateOpportunityActivity :AppCompatActivity() {
             /* Everything in the commented block below will be used eventually.
                 I only did it to prevent app from crashing.
             */
-            /*
+
             if (titleOpp.text.toString().isEmpty() ||
                 descOpp.text.toString().isEmpty() ||
                 hoursOpp.text.toString().isEmpty()) {
@@ -130,33 +132,57 @@ class CreateOpportunityActivity :AppCompatActivity() {
                 val desc: String = descOpp.text.toString()
                 val hours: Int = hoursOpp.text.toString().toInt()
 
-                // Create empty list which will be able to store list of volunteers in the future
-                lateinit var listVolunteers: List<String>
+                Log.i("CST", "Before creating the data intent")
 
-                // Get current user
-                val user = Firebase.auth.currentUser
+                var dataIntent = Intent(this@CreateOpportunityActivity,
+                    ViewOpportunitiesActivity::class.java)
 
-                /*
-                    FIRST ARG WILL BE THE NAME ONCE PHILIP MAKES
-                    ADJUSTMENTS TO REGISTRATION WORKFLOW
-                */
+                //dataIntent.
 
-                // Declare instance of opportunity to declare data
-                var newOpp : Opportunity = Opportunity(
-                    user?.uid.toString(),
+                dataIntent.putExtra("desc", desc)
+                dataIntent.putExtra("title", title)
+                dataIntent.putExtra("hours", hours.toString())
+
+                Log.i("CST", "Before starting activity")
+
+
+                // Add opportunity to database
+                var dbOpportunities = FirebaseDatabase.getInstance().getReference("opportunities")
+
+
+                var listVolunteers = ArrayList<String>()
+
+                // Creates random key for new opportunity
+                val opp_id : String? = dbOpportunities.push().getKey()
+
+                // New opportunity
+                val newOpp : Opportunity = Opportunity(
+                    opp_id,
                     desc,
                     title,
-                    hours,
+                    hours.toInt(),
                     0,
                     listVolunteers
                 )
 
-                // Might do it in actual class
-                //setResult(Activity.RESULT_OK)
+                // Adding an opportunity with the generated id to the table
+                dbOpportunities.child(opp_id!!)
+                    .setValue(newOpp)
+
+                // Send data to activity
+                startActivity(dataIntent)
+
+                Log.i("CST", "After starting activity")
+
+
+
+
+
+                //finish()
 
             }
 
-             */
+
 
 
         }
