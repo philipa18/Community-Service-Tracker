@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var header: TextView
+    private lateinit var userName: EditText
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
     private lateinit var regBtn: Button
@@ -26,10 +27,10 @@ class RegistrationActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        header = findViewById(R.id.orgRegHeader)
-        userEmail = findViewById(R.id.orgEmailReg)
-        userPassword = findViewById(R.id.orgPasswordReg)
-        regBtn = findViewById(R.id.orgRegButton)
+        header = findViewById(R.id.regHeader)
+        userEmail = findViewById(R.id.emailReg)
+        userPassword = findViewById(R.id.passwordReg)
+        regBtn = findViewById(R.id.regButton)
 
         val accountType = intent.getIntExtra("account_type",0)
         if (accountType == 0)
@@ -58,7 +59,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         x.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val mDB = Firebase.database.reference;
+                val mDB = Firebase.database.reference
                 mDB.child("users").child(task.result.user!!.uid).child("account_type").setValue(accountType)
                 Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@RegistrationActivity, SignInActivity::class.java))

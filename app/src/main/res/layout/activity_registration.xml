@@ -7,7 +7,7 @@
     tools:context=".accountentry.RegistrationActivity">
 
     <TextView
-        android:id="@+id/orgRegHeader"
+        android:id="@+id/regHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/orgEmailReg"
+        android:id="@+id/emailReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -29,11 +29,11 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orgRegHeader"
+        app:layout_constraintTop_toBottomOf="@+id/regHeader"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/orgPasswordReg"
+        android:id="@+id/passwordReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -44,17 +44,17 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orgEmailReg"
+        app:layout_constraintTop_toBottomOf="@+id/emailReg"
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/orgRegButton"
+        android:id="@+id/regButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orgPasswordReg" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
