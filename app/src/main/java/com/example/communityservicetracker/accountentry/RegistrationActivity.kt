@@ -28,6 +28,7 @@ class RegistrationActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         header = findViewById(R.id.regHeader)
+        userName = findViewById(R.id.nameReg)
         userEmail = findViewById(R.id.emailReg)
         userPassword = findViewById(R.id.passwordReg)
         regBtn = findViewById(R.id.regButton)
@@ -45,6 +46,7 @@ class RegistrationActivity : AppCompatActivity() {
     private fun registerNewUser(accountType: Int) {
         val email: String = userEmail.text.toString()
         val password: String = userPassword.text.toString()
+        val name: String = userName.text.toString()
 
 //        if (!validator.validEmail(email)) {
 //            Toast.makeText(applicationContext, "Please enter valid email...", Toast.LENGTH_LONG).show()
@@ -61,6 +63,7 @@ class RegistrationActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 val mDB = Firebase.database.reference
                 mDB.child("users").child(task.result.user!!.uid).child("account_type").setValue(accountType)
+                mDB.child("users").child(task.result.user!!.uid).child("name").setValue(name)
                 Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@RegistrationActivity, SignInActivity::class.java))
             } else {
