@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/student_opportunity_item"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="#FFFF00"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp"
+    app:contentPadding="4dp"
+    >    <!-- Card elevation? -->
+
+    <!-- Constraint layout within card to have multiple textviews-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/opportunity_item_layout"
+        android:padding="16dp">
+
+        <!-- Textviews and buttons -->
+
+        <!-- Title of volunteer opportunity -->
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/accepted_item_title"
+            android:text="Title here"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+        <!-- Description of volunteer opportunity -->
+        <CheckBox
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:id="@+id/done_checkbox"
+            app:cardCornerRadius="50dp"
+            android:layout_marginLeft="4dp"
+            android:text="Check when completed"
+            app:layout_constraintTop_toBottomOf="@+id/accepted_item_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <!-- Button that leads to another page -->
+        <Button
+            android:id="@+id/detailsButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:text="Details"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/done_checkbox"
+            app:layout_constraintTop_toTopOf="@id/done_checkbox" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

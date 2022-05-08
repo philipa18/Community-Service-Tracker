@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<TextView
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    android:textSize="40dp"
+    android:textColor="@color/white"
+    android:textAlignment="center"
+    android:text="Accepted Opportunities"
+    android:background="#aa00" />
+
+    <!-- Scrollable list of opportunities published -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/studentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintBottom_toTopOf="@id/buttonsLayout"
+        android:background="#aa9900">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <!-- Lower row of buttons -->
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/studentRecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        >
+
+        <!-- To create oppportunity -->
+
+
+        <!-- To view the opportunities the org has listed-->
+
+        <!-- To go back to profile page-->
+        <Button
+            android:id="@+id/newOppsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="New Opportunities" />
+
+        <Button
+            android:id="@+id/profilePageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="View Profile Page" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

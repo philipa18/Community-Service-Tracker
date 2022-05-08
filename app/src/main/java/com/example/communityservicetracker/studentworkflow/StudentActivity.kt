@@ -72,6 +72,13 @@ class StudentActivity : Activity() {
             startActivity(intent)
 
         }
+
+        viewAcceptedButton.setOnClickListener(){
+
+            val intent = Intent(this@StudentActivity, ViewAcceptedActivities::class.java)
+            startActivity(intent)
+
+        }
     }
 
 
