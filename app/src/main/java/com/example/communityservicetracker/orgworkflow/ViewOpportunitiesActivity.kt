@@ -65,23 +65,19 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
     // get list of opportunities
     private fun getOpportunities(){
 
-        Log.i("CST", "inside getOpportunities before reference to table ")
 
+        // Reference to opportunity table
         val oppTable = FirebaseDatabase.getInstance().getReference("opportunities")
 
-        Log.i("CST", "inside getOpportunities after reference to table ")
-
+        // Listener for when an opportunity object is added to the table
         oppTable.addValueEventListener(object : ValueEventListener{
-
-
 
             override fun onDataChange(snapshot: DataSnapshot) {
 
+                // Will store opportunities from db
                 var listOpps = arrayListOf<Opportunity>()
 
                 try {
-
-                    //listOpps.clear()
 
                     Log.i("CST", "in try/catch block in onDataChange")
 
@@ -94,20 +90,18 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
                         Log.i("CST", "${currOpp!!.organizationName}")
 
                         // Check if this opportunity has been posted by the current user (organization)
-                        //if (currOpp!!.organizationName.toString() == Firebase.auth.currentUser?.displayName.toString()) {
+                        if (currOpp!!.organizationName.toString() == Firebase.auth.currentUser?.uid.toString()) {
 
                             // Add to list to be passed to adapter
                             listOpps.add(currOpp!!)
-                        //}
+                        }
                     }
 
                     // Adapter linkage
-                    oppListAdapter = OpportunityListAdapter( listOpps)
-                    //Log.i("CST", "AAAA")
+                    oppListAdapter = OpportunityListAdapter(listOpps)
                     oppRecyclerView.adapter = oppListAdapter
-                    //Log.i("CST", "BBBB")
-                    oppListAdapter.notifyDataSetChanged() // Necessary?``
-                    //Log.i("CST", "CCCC")
+                    oppListAdapter.notifyDataSetChanged() // Necessary?
+
 
 
                 } catch (e: Exception) {
@@ -146,7 +140,8 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
         // Listener to create opportunity
         createOpp.setOnClickListener(){
 
-            val intent = Intent(this@ViewOpportunitiesActivity, CreateOpportunityActivity::class.java)
+            val intent = Intent(this@ViewOpportunitiesActivity,
+                CreateOpportunityActivity::class.java)
             startActivity(intent)
 
             // Will be empty because if already on the create opp page,

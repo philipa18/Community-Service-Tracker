@@ -97,7 +97,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
         // Already on profile page so no need to implement anything
         profilePage.setOnClickListener(){
 
-            val intent = Intent(this@CreateOpportunityActivity, DummyOrgActivity::class.java)
+            val intent = Intent(this@CreateOpportunityActivity, OrgInfoActivity::class.java)
             startActivity(intent)
 
         }
@@ -178,12 +178,6 @@ class CreateOpportunityActivity : AppCompatActivity() {
                 startActivity(dataIntent)
 
                 Log.i("CST", "After starting activity")
-
-
-
-
-
-                //finish()
 
             }
 

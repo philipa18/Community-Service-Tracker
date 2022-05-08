@@ -6,7 +6,9 @@
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_create_opportunity.xml" value="0.16" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_dummy_org.xml" value="0.2" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_dummy_student.xml" value="0.19375" />
+        <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_opportunity_detail.xml" value="0.1" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_organization_information.xml" value="0.16" />
+        <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_registration.xml" value="0.1" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_student.xml" value="0.1625" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/activity_view_opportunities.xml" value="0.1625" />
         <entry key="..\:/Users/benya/Documents/School/UMD/Semester08/CMSC436/Projects/Community-Service-Tracker/app/src/main/res/layout/opportunities_recycle_view.xml" value="0.1625" />
@@ -16,11 +18,8 @@
         <entry key="app/src/main/res/layout/activity_dummy_student.xml" value="0.14628623188405798" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.21776123046875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_opportunity_detail.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity_org_registration.xml" value="0.16530797101449277" />
-        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_sign_in_account_creation.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity_student_registration.xml" value="0.16530797101449277" />
       </map>
     </option>

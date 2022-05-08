@@ -1,17 +1,21 @@
 package com.example.communityservicetracker.orgworkflow
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.communityservicetracker.OpportunityDetailActivity
 import com.example.communityservicetracker.R
 
 
-class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
+class OpportunityListAdapter(
+    private var oppsList: ArrayList<Opportunity>) :
     RecyclerView.Adapter<OpportunityListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -27,12 +31,10 @@ class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
     // Function keeps iterating through the arrays
     override fun onBindViewHolder(holder: OpportunityListAdapter.ViewHolder, index: Int) {
 
-        Log.i("CST", "in ononBindViewHolder")
+        Log.i("CST", "in onBindViewHolder")
 
         holder.itemTitle.text = oppsList[index].title
         holder.itemDesc.text = oppsList[index].description
-
-
 
     }
 
@@ -60,10 +62,27 @@ class OpportunityListAdapter(private var oppsList: ArrayList<Opportunity>) :
             moreButton = itemView.findViewById(R.id.moreButton)
 
             // Should lead to a different page that shows more about the opportunity
-            moreButton.setOnClickListener(){
+            moreButton.setOnClickListener{
 
-                //  If user is a student, lead to a page that allows them to enroll?
-                // If user is an org, I guess show information about opportunity?
+                // Get index of opportunity in recycler view
+                val pos : Int = adapterPosition
+
+
+                // Create intent
+                val i = Intent(itemView.context,
+                            OpportunityDetailActivity::class.java)
+
+                Log.i("CST", "In adapter: Participants is ${oppsList[pos].numberOfApplicants}")
+
+                // Putting all data necessary to be able to show more details
+                i.putExtra("title", oppsList[pos].title)
+                i.putExtra("description", oppsList[pos].description)
+                i.putExtra("participants", oppsList[pos].numberOfApplicants.toString())
+                i.putExtra("timeCommitment", oppsList[pos].timeCommitment.toString())
+
+
+                // Start new activity with necessary attributes of opportunity passed in
+                startActivity(itemView.context, i, null)
 
 
             }
