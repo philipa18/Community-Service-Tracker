@@ -62,8 +62,17 @@ class RegistrationActivity : AppCompatActivity() {
         x.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val mDB = Firebase.database.reference
-                mDB.child("users").child(task.result.user!!.uid).child("account_type").setValue(accountType)
-                mDB.child("users").child(task.result.user!!.uid).child("name").setValue(name)
+                val uid = task.result.user!!.uid
+                mDB.child("users").child(uid).child("account_type").setValue(accountType)
+                mDB.child("users").child(uid).child("name").setValue(name)
+
+                val accountType = intent.getIntExtra("account_type",0)
+                if (accountType == 0)
+                    mDB.child("users")
+                        .child(task.result.user!!.uid)
+                        .child("currHours")
+                        .setValue(0)
+
                 Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@RegistrationActivity, SignInActivity::class.java))
             } else {
