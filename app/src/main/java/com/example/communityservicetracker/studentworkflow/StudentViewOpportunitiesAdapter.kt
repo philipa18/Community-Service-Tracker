@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.communityservicetracker.OpportunityDetailActivity
@@ -87,6 +88,11 @@ class StudentViewOpportunitiesAdapter  (private var oppsList: ArrayList<Opportun
 
                 //  If user is a student, lead to a page that allows them to enroll?
                 // If user is an org, I guess show information about opportunity?
+                Toast.makeText(
+                    itemView.context,
+                    "Opportunity  Added! See it on your profile",
+                    Toast.LENGTH_LONG
+                ).show()
 
 
             }
