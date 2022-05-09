@@ -74,6 +74,7 @@ class OpportunityListAdapter(
 
                 Log.i("CST", "In adapter: Participants is ${oppsList[pos].numberOfApplicants}")
 
+
                 // Putting all data necessary to be able to show more details
                 i.putExtra("title", oppsList[pos].title)
                 i.putExtra("description", oppsList[pos].description)

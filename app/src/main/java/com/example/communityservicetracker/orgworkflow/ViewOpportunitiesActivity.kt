@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.communityservicetracker.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 
@@ -38,25 +40,24 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
         // Vertical display
         oppRecyclerView.layoutManager = LinearLayoutManager(this)
 
-
-
-
-        Log.i("CST", "inside onCreate before (if intent equals null)")
-
-        //if (intent == null) {
-        //    Log.i("CST", "Intent is empty")
-        //} else {
-        //    intent?.let { workWithIntent(intent) }
-        //}
-
-        Log.i("CST", "inside onCreate before getOpportunities ")
-
-
-
         // Where we populate the recycler view
         getOpportunities()
 
-        Log.i("CST", "inside onCreate after getOpportunities ")
+        // Get reference to my database
+        val mDB = Firebase.database.reference
+
+        // Retrieves user signed in
+        val user = Firebase.auth.currentUser
+
+        // Access current organization
+        mDB.child("users").child(user!!.uid).child("name").get().addOnSuccessListener{
+
+            val name = it.value.toString()
+
+            // Name of user
+            supportActionBar!!.title = "View $name's Opportunities";
+
+        }
 
     }
 
@@ -117,11 +118,6 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
 
         })
 
-
-        Log.i("CST", "inside getOpportunities after adding value event listener")
-
-
-
     }
 
 
@@ -144,25 +140,14 @@ class ViewOpportunitiesActivity : AppCompatActivity() {
                 CreateOpportunityActivity::class.java)
             startActivity(intent)
 
-            // Will be empty because if already on the create opp page,
-            //  then there is no use for this button
-
         }
 
-        // Listener to view opportunities already listed
-        viewOpps.setOnClickListener(){
-
-            //val intent = Intent(this@ViewOpportunitiesActivity, ViewOpportunitiesActivity::class.java)
-            //startActivity(intent)
-
-
-        }
+        // Already on view opps page so no need to implement any listener
 
         // Listener for profile page
-        // Already on profile page so no need to implement anything
         profilePage.setOnClickListener(){
 
-            val intent = Intent(this@ViewOpportunitiesActivity, DummyOrgActivity::class.java)
+            val intent = Intent(this@ViewOpportunitiesActivity, OrgInfoActivity::class.java)
             startActivity(intent)
 
         }

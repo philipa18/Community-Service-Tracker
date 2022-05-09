@@ -27,7 +27,9 @@
             android:gravity="center"
             android:layout_centerInParent="true"
             android:textAlignment="center"
-            android:text="Title of opportunity: "
+            android:hint="Title of opportunity: "
+            android:textSize="20dp"
+            android:layout_weight="1"
             ></EditText>
 
         <!-- Description of opportunity-->
@@ -38,7 +40,9 @@
             android:gravity="center"
             android:layout_centerInParent="true"
             android:textAlignment="center"
-            android:text="Description of opportunity: "
+            android:textSize="20dp"
+            android:hint="Description of opportunity: "
+            android:layout_weight="1"
             ></EditText>
 
         <!-- Number of hours -->
@@ -49,12 +53,10 @@
             android:gravity="center"
             android:layout_centerInParent="true"
             android:textAlignment="center"
-            android:text="Time commitment of opportunity: "
+            android:textSize="20dp"
+            android:hint="Time commitment of opportunity in hours: "
+            android:layout_weight="1"
             ></EditText>
-
-
-
-
 
     </LinearLayout>
 
