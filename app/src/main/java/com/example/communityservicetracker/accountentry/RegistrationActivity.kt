@@ -3,6 +3,7 @@ package com.example.communityservicetracker.accountentry
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -18,6 +19,8 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var userName: EditText
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
+    private lateinit var studentGrade: EditText
+    private lateinit var studentGoal: EditText
     private lateinit var regBtn: Button
     private var mAuth: FirebaseAuth? = null
 
@@ -31,13 +34,20 @@ class RegistrationActivity : AppCompatActivity() {
         userName = findViewById(R.id.nameReg)
         userEmail = findViewById(R.id.emailReg)
         userPassword = findViewById(R.id.passwordReg)
+        studentGrade = findViewById(R.id.gradeReg)
+        studentGoal = findViewById(R.id.goalReg)
         regBtn = findViewById(R.id.regButton)
 
         val accountType = intent.getIntExtra("account_type",0)
         if (accountType == 0)
             header.text = "Register a new student account"
-        else
+//            studentGrade.visibility = View.VISIBLE
+//            studentGoal.visibility = View.VISIBLE
+        else {
             header.text = "Register a new organization account"
+            studentGrade.visibility = View.GONE
+            studentGoal.visibility = View.GONE
+        }
 
 
         regBtn.setOnClickListener { registerNewUser(accountType) }
@@ -67,11 +77,20 @@ class RegistrationActivity : AppCompatActivity() {
                 mDB.child("users").child(uid).child("name").setValue(name)
 
                 val accountType = intent.getIntExtra("account_type",0)
-                if (accountType == 0)
+                if (accountType == 0) {
                     mDB.child("users")
-                        .child(task.result.user!!.uid)
+                        .child(uid)
                         .child("currHours")
                         .setValue(0)
+                    mDB.child("users")
+                        .child(uid)
+                        .child("grade")
+                        .setValue(studentGrade.text.toString())
+                    mDB.child("users")
+                        .child(uid)
+                        .child("hour_goal")
+                        .setValue(studentGoal.text.toString())
+                }
 
                 Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@RegistrationActivity, SignInActivity::class.java))
