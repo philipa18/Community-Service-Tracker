@@ -44,8 +44,8 @@ class CreateOpportunityActivity : AppCompatActivity() {
         // Set up text fields
         setUpTextFields()
 
-        // Initialize getResult
-
+        // Change action bar text
+        supportActionBar!!.title = "Create a new opportunity";
 
     }
 
@@ -74,7 +74,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
 
 
         // Listener to create opportunity
-        createOpp.setOnClickListener(){
+        createOpp.setOnClickListener{
 
             //val intent = Intent(this@DummyOrgActivity, CreateOpportunityActivity::class.java)
             //startActivity(intent)
@@ -85,7 +85,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
         }
 
         // Listener to view opportunities already listed
-        viewOpps.setOnClickListener(){
+        viewOpps.setOnClickListener{
 
             val intent = Intent(this@CreateOpportunityActivity, ViewOpportunitiesActivity::class.java)
             startActivity(intent)
@@ -95,7 +95,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
 
         // Listener for profile page
         // Already on profile page so no need to implement anything
-        profilePage.setOnClickListener(){
+        profilePage.setOnClickListener{
 
             val intent = Intent(this@CreateOpportunityActivity, OrgInfoActivity::class.java)
             startActivity(intent)
@@ -103,7 +103,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
         }
 
         // For submit button, validate data in each text box
-        submitButton.setOnClickListener(){
+        submitButton.setOnClickListener{
 
             // validate data in each text box
             // If invalid,
@@ -119,12 +119,15 @@ class CreateOpportunityActivity : AppCompatActivity() {
                 I only did it to prevent app from crashing.
             */
 
+            // Check if user has filled out every check box
             if (titleOpp.text.toString().isEmpty() ||
                 descOpp.text.toString().isEmpty() ||
-                hoursOpp.text.toString().isEmpty()) {
+                hoursOpp.text.toString().isEmpty() ||
+                    hoursOpp.text.toString().toIntOrNull() == null ) {
 
                 Toast.makeText(this,
-                    "There exists an empty text box. Please try again",
+                    "Either Format of information has not been inputted or format is incorrect. " +
+                            "Please try again",
                     Toast.LENGTH_LONG).show()
 
             } else {
@@ -136,33 +139,32 @@ class CreateOpportunityActivity : AppCompatActivity() {
 
                 Log.i("CST", "Before creating the data intent")
 
-                var dataIntent = Intent(this@CreateOpportunityActivity,
+                val dataIntent = Intent(this@CreateOpportunityActivity,
                     ViewOpportunitiesActivity::class.java)
 
-                //dataIntent.
-
+                // Put necessary attributes into intent
                 dataIntent.putExtra("desc", desc)
                 dataIntent.putExtra("title", title)
                 dataIntent.putExtra("hours", hours.toString())
 
-                Log.i("CST", "Before starting activity")
 
 
+                //
                 // Add opportunity to database
-                var dbOpportunities = FirebaseDatabase.getInstance().getReference("opportunities")
+                //
+
+                // Get reference to opportunities table
+                val dbOpportunities = FirebaseDatabase.getInstance().getReference("opportunities")
 
 
-                var listVolunteers = ArrayList<String>()
-
-
-                //val oppName = FirebaseDatabase.User
+                val listVolunteers = ArrayList<String>()
 
                 // New opportunity
-                val newOpp : Opportunity = Opportunity(
+                val newOpp = Opportunity(
                     Firebase.auth.currentUser?.uid.toString(),
                     desc,
                     title,
-                    hours.toInt(),
+                    hours,
                     0,
                     listVolunteers
                 )
@@ -188,7 +190,7 @@ class CreateOpportunityActivity : AppCompatActivity() {
 
 
         // For cancel button, mimic the back button
-        cancelButton.setOnClickListener(){
+        cancelButton.setOnClickListener{
 
             setResult(Activity.RESULT_CANCELED)
             finish()

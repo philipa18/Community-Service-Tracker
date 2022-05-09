@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import com.example.communityservicetracker.R
 import com.google.firebase.auth.ktx.auth
 
@@ -40,18 +41,19 @@ class OrgInfoActivity : AppCompatActivity() {
 
         // Retrieves user signed in
         val user = Firebase.auth.currentUser
-        if (user != null) {
-            // User is signed in
 
-            //val j = mDB.child("users").child(user.uid).get().getResult()
-            //Log.i("OrgInfoActivity","uid of user signed in: $uid")
+        // Access current organization
+        mDB.child("users").child(user!!.uid).child("name").get().addOnSuccessListener{
 
-            //Log.i("CST", "$j")
+            // Gets name
+            val name = it.value.toString()
 
+            // Change text field to organization username
+            findViewById<TextView>(R.id.orgUsername).text = "Name: " + name
 
+            // Name of user in action bar
+            supportActionBar!!.title = "$name's Profile";
 
-        } else {
-            // No user is signed in
         }
 
     }
@@ -67,29 +69,19 @@ class OrgInfoActivity : AppCompatActivity() {
 
         // Listener to create opportunity
         createOpp.setOnClickListener(){
-
             val intent = Intent(this@OrgInfoActivity, CreateOpportunityActivity::class.java)
             startActivity(intent)
-
         }
 
         // Listener to view opportunities already listed
         viewOpps.setOnClickListener(){
-
             val intent = Intent(this@OrgInfoActivity, ViewOpportunitiesActivity::class.java)
             startActivity(intent)
-
-
         }
 
         // Listener for profile page
-        // Already on profile page so no need to implement anything
-        profilePage.setOnClickListener(){
+        // Already on profile page so no need to implement on set click listener
 
-            // val intent = Intent(this@DummyOrgActivity, OrgInfoActivity::class.java)
-            //startActivity(intent)
-
-        }
     }
 
 
