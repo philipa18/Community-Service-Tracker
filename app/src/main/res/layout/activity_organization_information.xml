@@ -11,15 +11,16 @@
             stuff about their organization. Will store textviews within this linear layout.
             A textview for each piece of info about the user -->
 
-    <!-- Three buttons at bottom of page in a linear layout -->
     <LinearLayout
         android:id="@+id/profileLayout"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
+        android:layout_height="0dp"
         android:background="#00aa00"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonsLayout"
+
         >
 
         <!-- -->
@@ -29,27 +30,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Where the username would be">
+            android:text="Username: {Where the username would be}"
+            android:textSize="32dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_weight="1">
 
         </TextView>
 
 
+
+
         <TextView
-            android:id="@+id/orgPassword"
+            android:id="@+id/org_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Where the password would be">
+            android:text="Description: {Where the description would be}"
+            android:textSize="32dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_weight="1">
 
         </TextView>
 
 
+
         <TextView
-            android:id="@+id/orgName"
+            android:id="@+id/orgNumOfVolunteers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Where the name of the org would be">
+            android:text="Number of volunteers: {Where the value would be}"
+            android:textSize="32dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_weight="1">
 
         </TextView>
 
@@ -57,12 +73,13 @@
     </LinearLayout>
 
 
+    <!-- Lower row of buttons -->
     <LinearLayout
         android:id="@+id/buttonsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/profileLayout"
+        app:layout_constraintTop_toBottomOf="@id/profileLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,14 +100,14 @@
         <Button
             android:id="@+id/viewOpps"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="View Opportunity" />
+            android:text="View Opportunities" />
 
         <Button
             android:id="@+id/profilePage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="View Profile Page" />
 

@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.communityservicetracker.R
 import com.example.communityservicetracker.orgworkflow.DummyOrgActivity
+import com.example.communityservicetracker.orgworkflow.OrgInfoActivity
 import com.example.communityservicetracker.orgworkflow.ViewOpportunitiesActivity
 import com.example.communityservicetracker.studentworkflow.StudentActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +64,7 @@ class SignInActivity : AppCompatActivity() {
                             if (mUserType == "0")
                                 startActivity(Intent(this@SignInActivity, StudentActivity::class.java))
                             else
-                                startActivity(Intent(this@SignInActivity, DummyOrgActivity::class.java))
+                                startActivity(Intent(this@SignInActivity, OrgInfoActivity::class.java))
 
                         }
                     Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG)

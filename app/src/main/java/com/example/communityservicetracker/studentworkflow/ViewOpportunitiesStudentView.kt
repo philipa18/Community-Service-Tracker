@@ -1,8 +1,10 @@
 package com.example.communityservicetracker.studentworkflow
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.communityservicetracker.R
@@ -18,10 +20,27 @@ import kotlin.collections.ArrayList
 class ViewOpportunitiesStudentView : AppCompatActivity() {
     private lateinit var oppListAdapter: StudentViewOpportunitiesAdapter
     private lateinit var oppRecyclerView: RecyclerView
+    private lateinit var viewProfileButton: Button
+    private lateinit var viewAcceptedButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_opportunities_student_view)
 
+        viewProfileButton = findViewById(R.id.profilePage)
+        viewAcceptedButton = findViewById(R.id.viewOpps)
+        viewAcceptedButton.setOnClickListener(){
+
+            val intent = Intent(this@ViewOpportunitiesStudentView, ViewAcceptedActivities::class.java)
+            startActivity(intent)
+
+        }
+
+        viewProfileButton.setOnClickListener(){
+
+            val intent = Intent(this@ViewOpportunitiesStudentView, StudentActivity::class.java)
+            startActivity(intent)
+
+        }
         //Set up RecyclerView
         oppRecyclerView = findViewById<RecyclerView>(R.id.oppRecyclerView)
 
