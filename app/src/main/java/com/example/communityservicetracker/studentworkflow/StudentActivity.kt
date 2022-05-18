@@ -50,6 +50,12 @@ class StudentActivity : Activity() {
                 val usernameType = it.value.toString()
                 name.text = usernameType
             }
+        mDB.child("users").child(uid).child("currHours").get()
+            .addOnSuccessListener {
+                val usernameType = it.value.toString()
+                hoursEarnedView.text = usernameType
+                progress.progress = it.value.toString().toInt()
+            }
 
 
         mDB.child("users").child(uid).child("hour_goal").get()

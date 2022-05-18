@@ -7,12 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.communityservicetracker.OpportunityDetailActivity
 import com.example.communityservicetracker.R
 import com.example.communityservicetracker.orgworkflow.Opportunity
 import com.example.communityservicetracker.orgworkflow.OpportunityListAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class StudentViewOpportunitiesAdapter  (private var oppsList: ArrayList<Opportunity>):
@@ -87,6 +92,15 @@ class StudentViewOpportunitiesAdapter  (private var oppsList: ArrayList<Opportun
 
                 //  If user is a student, lead to a page that allows them to enroll?
                 // If user is an org, I guess show information about opportunity?
+                val pos : Int = adapterPosition
+                var mAuth = FirebaseAuth.getInstance()
+                val mDB = Firebase.database.reference
+                val uid = mAuth!!.currentUser!!.uid
+                Toast.makeText(
+                    itemView.context,
+                    "Opportunity  Added! See it on your profile",
+                    Toast.LENGTH_LONG
+                ).show()
 
 
             }
